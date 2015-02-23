@@ -6,6 +6,15 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net maps.googleapis.com maps.gstatic.com",
+      'font-src': "'self' data: use.typekit.net",
+      'connect-src': "'self' ws://localhost:35729 ws://0.0.0.0:35729",
+      'img-src': "'self' www.facebook.com p.typekit.net",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net",
+      'frame-src': "s-static.ak.facebook.com static.ak.facebook.com www.facebook.com"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -25,6 +34,18 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    
+    ENV.backendUrl = 'http://api.simple_erp_api.dev'
+
+    ENV['simple-auth'] = {
+      authorizer: 'simple-auth-authorizer:oauth2-bearer',
+      crossOriginWhitelist: ['http://api.simple_erp_api.dev']
+    }
+
+    ENV['simple-auth-oauth2'] = {
+      serverTokenEndpoint: 'http://api.simple_erp_api.dev/sessions'
+    };
+
   }
 
   if (environment === 'test') {

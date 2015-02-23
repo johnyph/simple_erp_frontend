@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <form class="form-signin" {{action "authenticate" on="submit"}}>       
+    <h2 class="form-signin-heading">SimpleERP</h2>
+    {{input value=identification type="text" placeholder="Email" classNames="form-control"}}
+    {{input value=password type="password" placeholder="Κωδικος" classNames="form-control"}}      
+    {{input class="width-35 pull-right btn btn-sm btn-primary" type="submit" value="Εισέλθετε"}}   
+  </form>
+</div>

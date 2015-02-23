@@ -6,6 +6,12 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+  this.route('protected', { path: '/' }, function(){
+    this.route('dashboard', function(){
+       
+    });
+  });
 });
 
 export default Router;
