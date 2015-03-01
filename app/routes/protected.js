@@ -9,10 +9,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     Ember.$('body').addClass('no-skin');
       
     return this.store.find('user', this.get('session.id'));
-  },
-
-  afterModel: function(){
-    this.transitionTo('protected.dashboard');
-    console.log(this.get('session.current_user'));
-  },
+  }
 });

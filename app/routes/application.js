@@ -13,7 +13,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   
   actions: {
     sessionAuthenticationSucceeded: function(){
-      this.transitionTo('protected');
+      this.transitionTo('protected.dashboard');
     }
   }
 });

@@ -1,0 +1,46 @@
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="top-buffer"></div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Α/Α</th>
+          <th>
+            <a href="#" {{action 'sortBy' 'name'}}>
+              Όνομα
+            </a>
+
+          </th>
+          <th>
+            <a href="#" {{action 'sortBy' 'afm'}}>
+              Α.Φ.Μ.
+            </a>
+          </th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>{{input type="text" class="form-control" value=name action="search" placeholder="Όνομα"}}</th>
+          <th>{{input type="text" class="form-control" value=afm action="search"
+            placeholder="Α.Φ.Μ."}}</th>
+        </tr>
+      </thead>
+      
+      
+      <tbody>
+        {{#each organization in content}}
+          <tr>
+            <td>{{organization.id}}</td>
+            <td>{{organization.name}}</td>
+            <td>{{organization.afm}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+
+      <tfoot> 
+        {{page-numbers content=content}}
+      </tfoot>
+    </table>
+  </div>
+</div>

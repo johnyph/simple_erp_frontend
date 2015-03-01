@@ -12,7 +12,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{session.current_user.full_name}} <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> {{session.current_user.full_name}} <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#" {{ action 'invalidateSession' }}><i class="fa fa-sign-out"></i>Logout</a></li>
           </ul>
@@ -25,12 +25,18 @@
 <div class="row">
   <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
-      <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-      <li><a href="#">Reports</a></li>
-      <li><a href="#">Analytics</a></li>
-      <li><a href="#">Export</a></li>
+      {{#if session.current_user.isAdmin}}
+      <li>
+        {{#link-to 'organizations'}}
+          <i class="fa fa-university"></i>
+          Διαχείριση Εταιριών
+        {{/link-to}}
+      </li>
+      {{/if}}
     </ul>
   </div>
-</div>
 
-{{outlet}}
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    {{outlet}}
+  </div>
+</div>

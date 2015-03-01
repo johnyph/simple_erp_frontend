@@ -1,1 +1,28 @@
-test
+<div class="row">
+  {{#if session.current_user.isAdmin}}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Κεντρική Διαχείριση</h3>
+    </div>
+    <div class="panel-body">
+      <div class="col-sm-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Διαχείριση Εταιριών</h3>
+          </div>
+          <div class="panel-body">
+            <p class="text-center">
+              <i class="fa fa-university fa-4x"></i>
+            </p>
+            <p class="text-center">
+              {{#link-to 'organizations' class="btn btn-primary"}}
+                Διαχείριση
+              {{/link-to}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</div>
