@@ -6,7 +6,12 @@ export default Ember.Route.extend({
     return PagedRemoteArray.create({modelName: 'organization', 
                                     store: this.store,
                                     page: params.page || 1,
-                                    perPage: params.per_page || 10});
+                                    perPage: params.per_page || 10,
+                                    otherParams: {
+                                      sort: 'name',
+                                      direction: 'asc'
+                                    }
+                                  });
   },
 
   setupController: function(controller, model){

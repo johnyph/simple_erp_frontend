@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('dashboard');
     this.resource('organizations', function() {
       this.route('index');
+      this.route('new');
     });
   });
   this.route('about', { path: '/about'});
