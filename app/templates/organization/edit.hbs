@@ -1,0 +1,99 @@
+<form class="form-horizontal">
+  
+  <div class="form-group">
+    <label for="name" class="col-sm-2">Όνομα</label>
+    <div class="col-sm-5">
+      {{input value=organization.name class="form-control"}}
+    </div>
+    <div class="col-sm-5">
+      {{#if errors.organization.name.firstObject}}
+      <div class="text-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> {{errors.organization.name.firstObject}}</div>
+      {{/if}}
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="afm" class="col-sm-2">ΑΦΜ</label>
+    <div class="col-sm-5">
+      {{input value=organization.afm class="form-control"}}
+    </div>
+    <div class="col-sm-5">
+      {{#if errors.organization.afm.firstObject}}
+      <div class="text-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> {{errors.organization.afm.firstObject}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="col-sm-2">Email</label>
+    <div class="col-sm-5">
+      {{input value=organization.email class="form-control"}}
+    </div>
+    <div class="col-sm-5">
+      {{#if errors.organization.email.firstObject}}
+      <div class="text-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> {{errors.organization.email.firstObject}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="phone" class="col-sm-2">Τηλέφωνο</label>
+    <div class="col-sm-5">
+      {{input value=organization.phone class="form-control"}}
+    </div>
+    <div class="col-sm-5">
+      {{#if errors.organization.phone.firstObject}}
+      <div class="text-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> {{errors.organization.phone.firstObject}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="address" class="col-sm-2">Διεύθυνση</label>
+    <div class="col-sm-5">
+      {{input value=organization.address class="form-control"}}
+    </div>
+    <div class="col-sm-5">
+      {{#if errors.organization.address.firstObject}}
+      <div class="text-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> {{errors.organization.address.firstObject}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="city" class="col-sm-2">Πόλη</label>
+    <div class="col-sm-5">
+      {{input value=organization.city class="form-control"}}
+    </div>
+    <div class="col-sm-5">
+      {{#if errors.organization.city.firstObject}}
+      <div class="text-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> {{errors.organization.city.firstObject}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="zipcode" class="col-sm-2">T.K.</label>
+    <div class="col-sm-5">
+      {{input value=organization.zipcode class="form-control"}}
+    </div>
+    <div class="col-sm-5">
+      {{#if errors.organization.zipcode.firstObject}}
+      <div class="text-danger" role="alert"><i class="fa fa-exclamation-triangle"></i> {{errors.organization.zipcode.firstObject}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description" class="col-sm-2">Σχόλια</label>
+    <div class="col-sm-5">
+      {{textarea value=organization.description class="form-control"}}
+    </div>
+  </div>
+
+  <div class="well">
+    <button type="submit" class="btn btn-primary" {{action 'save'}}>Αποθήκευση</button>
+    {{#link-to 'organizations.index' class="btn btn-danger"}}Επιστροφή{{/link-to}}
+  </div>
+</form>
+

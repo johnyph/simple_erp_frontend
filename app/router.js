@@ -12,9 +12,17 @@ Router.map(function() {
     this.resource('organizations', function() {
       this.route('index');
       this.route('new');
+      this.resource('organization', {path: '/:org_id'}, function(){
+        this.route('edit');
+        this.resource('users', function(){
+          this.route('index');
+        });
+      });
     });
   });
   this.route('about', { path: '/about'});
+
+  
 });
 
 export default Router;

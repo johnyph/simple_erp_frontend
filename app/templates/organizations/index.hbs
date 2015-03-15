@@ -38,7 +38,7 @@
                 {{#each organization in content}}
                   <tr>
                     <td>{{organization.id}}</td>
-                    <td>{{organization.name}}</td>
+                    <td>{{#link-to 'organization.edit' organization.id}} {{organization.name}} {{/link-to}}</td>
                     <td>{{organization.afm}}</td>
                   </tr>
                 {{/each}}
