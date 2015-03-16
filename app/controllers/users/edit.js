@@ -2,18 +2,17 @@ import Ember from 'ember';
 import Notify from 'ember-notify';
 
 export default Ember.Controller.extend({
-  
-  actions:{
+ actions:{
     save: function(){
       var self = this;
       this.set('canValidate', true);
 
-      this.get('organization').save().then(function(){
+      this.get('user').save().then(function(){
         self.set('canValidate', false);
         Notify.success('Η αποθήκευση ολοκληρώθηκε με επιτυχία');
       }, function(response){
         self.set('canValidate', false);
-        self.get('organization').rollback();
+        self.get('user').rollback();
         Notify.alert(response, {
           closeAfter: 10000 // or set to null to disable auto-hiding
         });
@@ -24,12 +23,12 @@ export default Ember.Controller.extend({
       var self = this;
       this.set('canValidate', true);
 
-      this.get('organization').destroyRecord().then(function(){
+      this.get('user').destroyRecord().then(function(){
         Notify.success('Η διαγραφή ολοκληρώθηκε με επιτυχία');
-        self.transitionToRoute('organizations.index');
+        self.transitionToRoute('organization.edit');
       }, function(response){
         self.set('canValidate', false);
-        self.get('organization').rollback();
+        self.get('user').rollback();
         Notify.alert(response, {
           closeAfter: 10000 // or set to null to disable auto-hiding
         });

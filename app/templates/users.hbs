@@ -1,15 +1,20 @@
-{{#if users}}
+
 <div class="row">
   <div class="col-sm-4">
+    {{#if users}}
     <table class="table table-striped table-bordered">
       <tbody>
         {{#each user in users}}
         <tr>
-          <td>{{#link-to 'users'}}{{user.email}}{{/link-to}}</td>
+          <td>{{#link-to 'users.edit' user.id}}{{user.email}}{{/link-to}}</td>
         </tr>
         {{/each}}
       </tbody>
     </table>
+    {{else}}
+      <p class="bg-warning">Δεν υπάρχουν χρήστες. {{#link-to 'users.new'}}Δημιουργία νέου χρήστη{{/link-to}}</p>
+    {{/if}}
+
   </div>
   <div class="col-sm-8">
     {{outlet}}
@@ -19,15 +24,8 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="well">
-      {{#link-to 'organizations.index' class="btn btn-primary"}}Νέος Χρήστης{{/link-to}}
-      {{#link-to 'organizations.index' class="btn btn-danger"}}Επιστροφή{{/link-to}}
+      {{#link-to 'users.new' class="btn btn-primary"}}<i class="fa fa-plus"></i> Νέος Χρήστης{{/link-to}}
+      {{#link-to 'organizations.index' class="btn btn-default"}}<i class="fa fa-rotate-left"></i> Επιστροφή{{/link-to}}
     </div>
   </div>
 </div>
-{{else}}
-<div class="row">
-  <div class="col-sm-12">
-    <p class="bg-warning">Δεν υπάρχουν χρήστες. {{#link-to 'organizations.index'}}Δημιουργία νέου χρήστη{{/link-to}}</p>
-  </div>
-</div>
-{{/if}}

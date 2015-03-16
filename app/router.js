@@ -16,13 +16,16 @@ Router.map(function() {
         this.route('edit');
         this.resource('users', function(){
           this.route('index');
+          this.route('new');
+          this.route('edit', {path: '/:user_id'});
         });
       });
     });
+    this.resource('suppliers', function() {
+      this.route('index');
+    });
   });
   this.route('about', { path: '/about'});
-
-  
 });
 
 export default Router;
